@@ -365,7 +365,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\adzspec\\nuxt\\generated\\prisma",
+      "value": "/Users/apple/Desktop/nuxt/whitelabel-ui/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -374,12 +374,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\adzspec\\nuxt\\prisma\\schema.prisma",
+    "sourceFilePath": "/Users/apple/Desktop/nuxt/whitelabel-ui/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -393,7 +393,7 @@ const config = {
     "db"
   ],
   "activeProvider": "mysql",
-  "postinstall": false,
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {

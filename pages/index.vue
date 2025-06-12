@@ -6,10 +6,14 @@
 import { shallowRef, onMounted } from 'vue'
 import HomeOne from '~/components/homeOne/main.vue'
 import HomeTwo from '~/components/homeTwo/main.vue'
+import HomeThree from '~/components/homeThree/main.vue'
+import HomeFour from '~/components/homeFour/main.vue'
 
 const componentMap = {
   homeOne: HomeOne,
   homeTwo: HomeTwo,
+  homeThree: HomeThree,
+  homeFour: HomeFour
 }
 
 const selectedComponent = shallowRef(null) // no component yet
