@@ -16,7 +16,8 @@ const selectedComponent = shallowRef(null) // no component yet
 
 onMounted(async () => {
   const settings = await $fetch('/api/settings')
-  const homepageKey = settings.find(item => item.key === 'homePage')?.value
+
+  const homepageKey = settings?.homePage ?? 'homeOne'
 
   if (componentMap[homepageKey]) {
     selectedComponent.value = componentMap[homepageKey]
@@ -24,4 +25,5 @@ onMounted(async () => {
     selectedComponent.value = HomeOne
   }
 })
+
 </script>

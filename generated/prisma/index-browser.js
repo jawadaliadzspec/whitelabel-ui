@@ -117,19 +117,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.Audit_trailsScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  title: 'title',
-  link: 'link',
-  reference_id: 'reference_id',
-  section: 'section',
-  type: 'type',
-  created_at: 'created_at',
-  updated_at: 'updated_at',
-  deleted_at: 'deleted_at'
-};
-
 exports.Prisma.Failed_jobsScalarFieldEnum = {
   id: 'id',
   uuid: 'uuid',
@@ -168,18 +155,6 @@ exports.Prisma.Model_has_rolesScalarFieldEnum = {
   model_id: 'model_id'
 };
 
-exports.Prisma.NotificationsScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  assigned_to_user_id: 'assigned_to_user_id',
-  assigned_from_user_id: 'assigned_from_user_id',
-  link: 'link',
-  viewed: 'viewed',
-  viewed_at: 'viewed_at',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-};
-
 exports.Prisma.Password_reset_tokensScalarFieldEnum = {
   email: 'email',
   token: 'token',
@@ -189,22 +164,7 @@ exports.Prisma.Password_reset_tokensScalarFieldEnum = {
 exports.Prisma.PermissionsScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  label: 'label',
-  module: 'module',
   guard_name: 'guard_name',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-};
-
-exports.Prisma.Personal_access_tokensScalarFieldEnum = {
-  id: 'id',
-  tokenable_type: 'tokenable_type',
-  tokenable_id: 'tokenable_id',
-  name: 'name',
-  token: 'token',
-  abilities: 'abilities',
-  last_used_at: 'last_used_at',
-  expires_at: 'expires_at',
   created_at: 'created_at',
   updated_at: 'updated_at'
 };
@@ -217,16 +177,7 @@ exports.Prisma.Role_has_permissionsScalarFieldEnum = {
 exports.Prisma.RolesScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  label: 'label',
   guard_name: 'guard_name',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-};
-
-exports.Prisma.SettingsScalarFieldEnum = {
-  id: 'id',
-  key: 'key',
-  value: 'value',
   created_at: 'created_at',
   updated_at: 'updated_at'
 };
@@ -234,25 +185,213 @@ exports.Prisma.SettingsScalarFieldEnum = {
 exports.Prisma.UsersScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  slug: 'slug',
   email: 'email',
-  password: 'password',
-  image: 'image',
-  is_office_login_only: 'is_office_login_only',
-  is_active: 'is_active',
   email_verified_at: 'email_verified_at',
-  last_logged_in_at: 'last_logged_in_at',
-  two_fa_active: 'two_fa_active',
-  two_fa_secret_key: 'two_fa_secret_key',
-  invited_by: 'invited_by',
-  invited_at: 'invited_at',
-  joined_at: 'joined_at',
-  invite_token: 'invite_token',
-  last_activity: 'last_activity',
+  password: 'password',
+  company_id: 'company_id',
   remember_token: 'remember_token',
   created_at: 'created_at',
-  updated_at: 'updated_at',
-  deleted_at: 'deleted_at'
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.CacheScalarFieldEnum = {
+  key: 'key',
+  value: 'value',
+  expiration: 'expiration'
+};
+
+exports.Prisma.Cache_locksScalarFieldEnum = {
+  key: 'key',
+  owner: 'owner',
+  expiration: 'expiration'
+};
+
+exports.Prisma.Job_batchesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  total_jobs: 'total_jobs',
+  pending_jobs: 'pending_jobs',
+  failed_jobs: 'failed_jobs',
+  failed_job_ids: 'failed_job_ids',
+  options: 'options',
+  cancelled_at: 'cancelled_at',
+  created_at: 'created_at',
+  finished_at: 'finished_at'
+};
+
+exports.Prisma.SessionsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  ip_address: 'ip_address',
+  user_agent: 'user_agent',
+  payload: 'payload',
+  last_activity: 'last_activity'
+};
+
+exports.Prisma.CategoriesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  parent_id: 'parent_id',
+  company_id: 'company_id',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.CompaniesScalarFieldEnum = {
+  id: 'id',
+  registration_no: 'registration_no',
+  vat: 'vat',
+  name: 'name',
+  email: 'email',
+  domain: 'domain',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.Company_frontend_settingsScalarFieldEnum = {
+  id: 'id',
+  company_id: 'company_id',
+  settings: 'settings',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.Company_integrationsScalarFieldEnum = {
+  id: 'id',
+  company_id: 'company_id',
+  provider: 'provider',
+  credentials: 'credentials',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.Company_profilesScalarFieldEnum = {
+  id: 'id',
+  company_id: 'company_id',
+  phone: 'phone',
+  address: 'address',
+  country: 'country',
+  zipcode: 'zipcode',
+  city: 'city',
+  state: 'state',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.Company_subscriptionsScalarFieldEnum = {
+  id: 'id',
+  company_id: 'company_id',
+  subscription_id: 'subscription_id',
+  start_date: 'start_date',
+  end_date: 'end_date',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.Integration_category_mappingsScalarFieldEnum = {
+  id: 'id',
+  company_id: 'company_id',
+  provider: 'provider',
+  external_category: 'external_category',
+  category_id: 'category_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.MenusScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  href: 'href',
+  icon: 'icon',
+  role: 'role',
+  permission: 'permission',
+  parent_id: 'parent_id',
+  order: 'order',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.Offer_categoryScalarFieldEnum = {
+  id: 'id',
+  offer_id: 'offer_id',
+  category_id: 'category_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.OffersScalarFieldEnum = {
+  id: 'id',
+  company_id: 'company_id',
+  store_id: 'store_id',
+  category_id: 'category_id',
+  title: 'title',
+  description: 'description',
+  product_url: 'product_url',
+  image_url: 'image_url',
+  price: 'price',
+  code: 'code',
+  start_date: 'start_date',
+  end_date: 'end_date',
+  link: 'link',
+  is_featured: 'is_featured',
+  is_exclusive: 'is_exclusive',
+  is_deal: 'is_deal',
+  path: 'path',
+  thumbnail: 'thumbnail',
+  sku: 'sku',
+  product_name: 'product_name',
+  product_price: 'product_price',
+  old_price: 'old_price',
+  source: 'source',
+  type: 'type',
+  external_id: 'external_id',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.PaymentsScalarFieldEnum = {
+  id: 'id',
+  company_subscription_id: 'company_subscription_id',
+  amount: 'amount',
+  payment_method: 'payment_method',
+  payment_status: 'payment_status',
+  transaction_id: 'transaction_id',
+  paid_at: 'paid_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.StoresScalarFieldEnum = {
+  id: 'id',
+  company_id: 'company_id',
+  name: 'name',
+  image: 'image',
+  description: 'description',
+  status: 'status',
+  channelId: 'channelId',
+  channelName: 'channelName',
+  programId: 'programId',
+  categoryName: 'categoryName',
+  categoryId: 'categoryId',
+  productFeedId: 'productFeedId',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.SubscriptionsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  price: 'price',
+  duration: 'duration',
+  features: 'features',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 };
 
 exports.Prisma.SortOrder = {
@@ -260,28 +399,26 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
 };
 
-exports.Prisma.audit_trailsOrderByRelevanceFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  title: 'title',
-  link: 'link',
-  reference_id: 'reference_id',
-  section: 'section',
-  type: 'type'
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.failed_jobsOrderByRelevanceFieldEnum = {
-  id: 'id',
   uuid: 'uuid',
   connection: 'connection',
   queue: 'queue',
   payload: 'payload',
   exception: 'exception'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 exports.Prisma.jobsOrderByRelevanceFieldEnum = {
@@ -294,23 +431,11 @@ exports.Prisma.migrationsOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.model_has_permissionsOrderByRelevanceFieldEnum = {
-  permission_id: 'permission_id',
-  model_type: 'model_type',
-  model_id: 'model_id'
+  model_type: 'model_type'
 };
 
 exports.Prisma.model_has_rolesOrderByRelevanceFieldEnum = {
-  role_id: 'role_id',
-  model_type: 'model_type',
-  model_id: 'model_id'
-};
-
-exports.Prisma.notificationsOrderByRelevanceFieldEnum = {
-  id: 'id',
-  title: 'title',
-  assigned_to_user_id: 'assigned_to_user_id',
-  assigned_from_user_id: 'assigned_from_user_id',
-  link: 'link'
+  model_type: 'model_type'
 };
 
 exports.Prisma.password_reset_tokensOrderByRelevanceFieldEnum = {
@@ -319,68 +444,165 @@ exports.Prisma.password_reset_tokensOrderByRelevanceFieldEnum = {
 };
 
 exports.Prisma.permissionsOrderByRelevanceFieldEnum = {
-  id: 'id',
   name: 'name',
-  label: 'label',
-  module: 'module',
   guard_name: 'guard_name'
-};
-
-exports.Prisma.personal_access_tokensOrderByRelevanceFieldEnum = {
-  id: 'id',
-  tokenable_type: 'tokenable_type',
-  name: 'name',
-  token: 'token',
-  abilities: 'abilities'
-};
-
-exports.Prisma.role_has_permissionsOrderByRelevanceFieldEnum = {
-  permission_id: 'permission_id',
-  role_id: 'role_id'
 };
 
 exports.Prisma.rolesOrderByRelevanceFieldEnum = {
-  id: 'id',
   name: 'name',
-  label: 'label',
   guard_name: 'guard_name'
 };
 
-exports.Prisma.settingsOrderByRelevanceFieldEnum = {
-  id: 'id',
+exports.Prisma.usersOrderByRelevanceFieldEnum = {
+  name: 'name',
+  email: 'email',
+  password: 'password',
+  remember_token: 'remember_token'
+};
+
+exports.Prisma.cacheOrderByRelevanceFieldEnum = {
   key: 'key',
   value: 'value'
 };
 
-exports.Prisma.usersOrderByRelevanceFieldEnum = {
-  id: 'id',
-  name: 'name',
-  slug: 'slug',
-  email: 'email',
-  password: 'password',
-  image: 'image',
-  two_fa_secret_key: 'two_fa_secret_key',
-  invited_by: 'invited_by',
-  invite_token: 'invite_token',
-  remember_token: 'remember_token'
+exports.Prisma.cache_locksOrderByRelevanceFieldEnum = {
+  key: 'key',
+  owner: 'owner'
 };
 
+exports.Prisma.job_batchesOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  failed_job_ids: 'failed_job_ids',
+  options: 'options'
+};
+
+exports.Prisma.sessionsOrderByRelevanceFieldEnum = {
+  id: 'id',
+  ip_address: 'ip_address',
+  user_agent: 'user_agent',
+  payload: 'payload'
+};
+
+exports.Prisma.categoriesOrderByRelevanceFieldEnum = {
+  name: 'name'
+};
+
+exports.Prisma.companiesOrderByRelevanceFieldEnum = {
+  registration_no: 'registration_no',
+  vat: 'vat',
+  name: 'name',
+  email: 'email',
+  domain: 'domain'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
+exports.Prisma.company_integrationsOrderByRelevanceFieldEnum = {
+  provider: 'provider'
+};
+
+exports.Prisma.company_profilesOrderByRelevanceFieldEnum = {
+  phone: 'phone',
+  address: 'address',
+  country: 'country',
+  zipcode: 'zipcode',
+  city: 'city',
+  state: 'state'
+};
+
+exports.Prisma.company_subscriptionsOrderByRelevanceFieldEnum = {
+  status: 'status'
+};
+
+exports.Prisma.integration_category_mappingsOrderByRelevanceFieldEnum = {
+  provider: 'provider',
+  external_category: 'external_category'
+};
+
+exports.Prisma.menusOrderByRelevanceFieldEnum = {
+  title: 'title',
+  href: 'href',
+  icon: 'icon',
+  role: 'role',
+  permission: 'permission'
+};
+
+exports.Prisma.offersOrderByRelevanceFieldEnum = {
+  title: 'title',
+  description: 'description',
+  product_url: 'product_url',
+  image_url: 'image_url',
+  code: 'code',
+  link: 'link',
+  path: 'path',
+  thumbnail: 'thumbnail',
+  sku: 'sku',
+  product_name: 'product_name',
+  source: 'source',
+  external_id: 'external_id'
+};
+
+exports.Prisma.paymentsOrderByRelevanceFieldEnum = {
+  payment_method: 'payment_method',
+  payment_status: 'payment_status',
+  transaction_id: 'transaction_id'
+};
+
+exports.Prisma.storesOrderByRelevanceFieldEnum = {
+  name: 'name',
+  image: 'image',
+  description: 'description',
+  channelName: 'channelName',
+  categoryName: 'categoryName'
+};
+
+exports.Prisma.subscriptionsOrderByRelevanceFieldEnum = {
+  name: 'name'
+};
+exports.offers_type = exports.$Enums.offers_type = {
+  deal: 'deal',
+  coupon: 'coupon',
+  campaign: 'campaign'
+};
 
 exports.Prisma.ModelName = {
-  audit_trails: 'audit_trails',
   failed_jobs: 'failed_jobs',
   jobs: 'jobs',
   migrations: 'migrations',
   model_has_permissions: 'model_has_permissions',
   model_has_roles: 'model_has_roles',
-  notifications: 'notifications',
   password_reset_tokens: 'password_reset_tokens',
   permissions: 'permissions',
-  personal_access_tokens: 'personal_access_tokens',
   role_has_permissions: 'role_has_permissions',
   roles: 'roles',
-  settings: 'settings',
-  users: 'users'
+  users: 'users',
+  cache: 'cache',
+  cache_locks: 'cache_locks',
+  job_batches: 'job_batches',
+  sessions: 'sessions',
+  categories: 'categories',
+  companies: 'companies',
+  company_frontend_settings: 'company_frontend_settings',
+  company_integrations: 'company_integrations',
+  company_profiles: 'company_profiles',
+  company_subscriptions: 'company_subscriptions',
+  integration_category_mappings: 'integration_category_mappings',
+  menus: 'menus',
+  offer_category: 'offer_category',
+  offers: 'offers',
+  payments: 'payments',
+  stores: 'stores',
+  subscriptions: 'subscriptions'
 };
 
 /**
