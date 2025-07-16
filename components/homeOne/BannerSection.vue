@@ -7,9 +7,13 @@
       <h2 class="font-bold text-lg sm:text-xl text-white pt-4 sm:pt-6 max-w-xl">
         With hundreds of discounts and stores, you'll find what you're looking for here!
       </h2>
-      <button class="bg-white text-gray-900 text-lg px-6 py-2 rounded-lg font-bold hover:text-[#d63384] hover:bg-white transition duration-700 mt-6 sm:mt-8">
+      <NuxtLink
+          :to="`/browse`"
+          class="bg-white text-gray-900 text-lg px-6 py-2 rounded-lg font-bold hover:text-[#d63384] hover:bg-white transition duration-700 mt-6 sm:mt-8">
         Find your discounts
-      </button>
+      </NuxtLink>
     </div>
   </div>
 </template>
+<script setup lang="ts">
+</script>

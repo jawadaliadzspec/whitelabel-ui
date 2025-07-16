@@ -32,7 +32,7 @@
               :to="`/offers/${offer.path}`"
               class="bg-[#d63384] px-5 py-2 mt-6 text-white rounded-lg font-semibold hover:text-[#d63384] hover:bg-white hover:outline hover:outline-1 hover:outline-[#d63384] transition duration-700"
           >
-            Upptäck Mer
+            Discover More
           </NuxtLink>
         </div>
       </div>

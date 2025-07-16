@@ -1,13 +1,9 @@
 <template>
   <!-- Hero Section -->
-  <div class="bg-purple-100 min-h-[16rem] flex items-center justify-center text-center px-2">
-    <div>
-      <h1 class="text-3xl sm:text-4xl font-semibold">Categories</h1>
-      <p class="mt-3 sm:mt-4 text-base sm:text-lg flex items-center justify-center gap-2 text-gray-700">
-        <i class="fa-solid fa-house small"></i> Hem / Categories
-      </p>
-    </div>
-  </div>
+  <HeroSection
+      title="Categories"
+      breadcrumb="Home / Categories"
+  />
   <section class="bg-blue-100 pt-16 pb-22">
     <h1 class="font-semibold text-3xl text-gray-900 p-4 md:ml-12">
       All Categories
@@ -42,6 +38,7 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { usePageMeta } from '~/composables/usePageMeta'
+import HeroSection from "~/components/common/HeroSection.vue";
 
 usePageMeta('All Categories', 'Browse all discount categories on Veckans R.')
 const categories = ref([])

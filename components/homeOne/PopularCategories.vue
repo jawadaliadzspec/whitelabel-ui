@@ -10,14 +10,20 @@
           :key="cat.id"
           class="w-full sm:w-[47%] lg:w-[22%] bg-white rounded-xl shadow p-4 flex flex-col gap-4 items-center transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
       >
-        <div class="w-full text-center">
-          <p class="text-xl font-bold text-gray-900 hover:text-[#d63384] cursor-pointer">
+        <NuxtLink
+            :to="{
+      path: '/browse',
+      query: { categories: cat.id }
+    }"
+            class="w-full text-center block"
+        >
+          <p class="text-xl font-bold text-gray-900 hover:text-[#d63384]">
             {{ cat.name }}
           </p>
           <p class="text-md text-[#d63384] pt-2">
             {{ cat._count?.offers || 0 }} Discounts
           </p>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </section>

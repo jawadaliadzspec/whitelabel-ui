@@ -1,13 +1,9 @@
 <template>
   <!-- Hero Section -->
-  <div class="bg-purple-100 min-h-[16rem] flex items-center justify-center text-center px-2">
-    <div>
-      <h1 class="text-3xl sm:text-4xl font-semibold">Contact Us</h1>
-      <p class="mt-3 sm:mt-4 text-base sm:text-lg flex items-center justify-center gap-2 text-gray-700">
-        <i class="fa-solid fa-house small"></i> Home / Contact Us
-      </p>
-    </div>
-  </div>
+  <HeroSection
+      title="Contact Us"
+      breadcrumb="Home / Contact Us"
+  />
 
   <!-- Contact Content Section -->
   <section class="py-10 bg-white max-w-7xl mx-auto">
@@ -117,6 +113,7 @@
 
 <script setup>
 import { usePageMeta } from '~/composables/usePageMeta'
+import HeroSection from "~/components/common/HeroSection.vue";
 
 usePageMeta('Contact Us', 'Contact With Us')
 </script>

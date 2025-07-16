@@ -1,13 +1,9 @@
 <template>
   <!-- Hero Section -->
-  <div class="bg-purple-100 min-h-[16rem] flex items-center justify-center text-center px-2">
-    <div>
-      <h1 class="text-3xl sm:text-4xl font-semibold">Browse</h1>
-      <p class="mt-3 sm:mt-4 text-base sm:text-lg flex items-center justify-center gap-2 text-gray-700">
-        <i class="fa-solid fa-house small"></i> Home / Browse Coupons
-      </p>
-    </div>
-  </div>
+  <HeroSection
+      title="Browse"
+      breadcrumb="Home / Browse"
+  />
 
   <!-- Main Content -->
   <section class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 px-2 sm:px-6 lg:px-12 py-8">
@@ -15,14 +11,14 @@
     <aside class="md:w-1/4 flex-shrink-0 mb-8 md:mb-0">
       <div class="flex flex-col gap-6">
         <!-- Search -->
-        <form>
-          <input
-              type="text"
-              placeholder="Söka"
-              aria-label="Sök kuponger"
-              class="w-full py-3 px-4 border border-gray-200 rounded-xl font-medium outline-none focus:ring-2 focus:ring-[#d63384] mb-3"
-          />
-        </form>
+<!--        <form>-->
+<!--          <input-->
+<!--              type="text"-->
+<!--              placeholder="Söka"-->
+<!--              aria-label="Sök kuponger"-->
+<!--              class="w-full py-3 px-4 border border-gray-200 rounded-xl font-medium outline-none focus:ring-2 focus:ring-[#d63384] mb-3"-->
+<!--          />-->
+<!--        </form>-->
         <!-- Kategorier Box -->
         <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6">
           <h2 class="text-xl font-bold text-gray-900 mb-2 pb-2 border-b border-[#d63384]">Filter By Categories</h2>
@@ -42,10 +38,10 @@
             </label>
 
           </div>
-          <button
-              type="button"
-              class="mt-3 px-5 py-2 bg-[#d63384] text-white font-semibold rounded-lg shadow-sm transition hover:bg-white hover:text-[#d63384] border border-[#d63384] duration-300"
-          >Visa Mer</button>
+<!--          <button-->
+<!--              type="button"-->
+<!--              class="mt-3 px-5 py-2 bg-[#d63384] text-white font-semibold rounded-lg shadow-sm transition hover:bg-white hover:text-[#d63384] border border-[#d63384] duration-300"-->
+<!--          >Visa Mer</button>-->
         </div>
         <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6">
           <h2 class="text-xl font-bold text-gray-900 mb-2 pb-2 border-b border-[#d63384]">Filter By Stores</h2>
@@ -65,10 +61,10 @@
             </label>
 
           </div>
-          <button
-              type="button"
-              class="mt-3 px-5 py-2 bg-[#d63384] text-white font-semibold rounded-lg shadow-sm transition hover:bg-white hover:text-[#d63384] border border-[#d63384] duration-300"
-          >Visa Mer</button>
+<!--          <button-->
+<!--              type="button"-->
+<!--              class="mt-3 px-5 py-2 bg-[#d63384] text-white font-semibold rounded-lg shadow-sm transition hover:bg-white hover:text-[#d63384] border border-[#d63384] duration-300"-->
+<!--          >Visa Mer</button>-->
         </div>
       </div>
     </aside>
@@ -109,7 +105,7 @@
                 :to="`/offers/${offer.path}`"
                 class="bg-[#d63384] px-5 py-2 mt-6 text-white rounded-lg font-semibold hover:text-[#d63384] hover:bg-white hover:outline hover:outline-1 hover:outline-[#d63384] transition duration-700"
             >
-              Upptäck Mer
+              Discover More
             </NuxtLink>
           </div>
         </div>
@@ -127,6 +123,7 @@
 import {onMounted, ref, watch } from "vue";
 import Pagination from "~/components/Pagination.vue"
 import { usePageMeta } from '~/composables/usePageMeta'
+import HeroSection from "~/components/common/HeroSection.vue";
 
 const categories = ref([])
 const stores = ref([])
