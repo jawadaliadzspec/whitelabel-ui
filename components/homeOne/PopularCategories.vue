@@ -1,7 +1,7 @@
 <template>
   <section class="bg-blue-100 pt-16 pb-22">
     <h1 class="font-semibold text-3xl text-gray-900 p-4 md:ml-12">
-      Populära kategorier
+      Popular Categories
     </h1>
 
     <div class="flex flex-wrap justify-center gap-6 px-2 sm:px-6">

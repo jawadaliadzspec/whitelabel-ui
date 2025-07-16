@@ -3,15 +3,15 @@
   <div class="bg-[#f5f3fc] relative overflow-hidden">
   <div class="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center px-4 md:px-10 py-10 md:py-20">
     <div class="flex-1 text-center md:text-left z-10">
-      <div class="text-[#d63384] font-semibold text-lg md:text-xl mb-4">Över 300 rabatter tillgängliga nu!</div>
+      <div class="text-[#d63384] font-semibold text-lg md:text-xl mb-4">Over 3000 discounts available now!</div>
       <h1 class="font-black text-4xl md:text-6xl lg:text-7xl text-gray-900 mb-6 leading-tight">
-        Spara pengar
+        Save money
       </h1>
       <NuxtLink
-          to="/"
+          to="/browse"
           class="inline-block bg-[#d63384] text-white px-8 py-3 rounded-lg font-bold text-lg md:text-xl shadow-md hover:bg-[#a81e63] transition"
       >
-        Upptäck Mer
+        Discover More
       </NuxtLink>
     </div>
     <!-- Right Side Image and Shape -->

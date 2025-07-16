@@ -126,14 +126,22 @@
 <script setup>
 import {onMounted, ref, watch } from "vue";
 import Pagination from "~/components/Pagination.vue"
+import { usePageMeta } from '~/composables/usePageMeta'
 
 const categories = ref([])
 const stores = ref([])
 const offers = ref([])
+const route = useRoute()
 
+usePageMeta('Browse', 'Browse all coupons on Veckans R.')
 onMounted(async () => {
   categories.value = await $fetch('/api/categories');
   stores.value = await $fetch('/api/stores');
+  if (route.query.categories) {
+    selectedCategories.value = Array.isArray(route.query.categories)
+        ? route.query.categories.map(Number)
+        : [Number(route.query.categories)]
+  }
   await loadOffers()
 })
 

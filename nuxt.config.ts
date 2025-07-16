@@ -12,4 +12,9 @@ export default defineNuxtConfig({
       tailwindcss(), // <-- Only Vite plugins go here
     ],
   },
+  runtimeConfig: {
+    public: {
+      appName: process.env.APP_NAME || 'Veckans R',
+    }
+  }
 })

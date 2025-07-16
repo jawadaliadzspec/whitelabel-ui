@@ -6,16 +6,15 @@
     <p>Could not find offer.</p>
   </section>
   <section v-else>
-  <div
-      class="bg-purple-100 h-40 flex items-center justify-center text-center"
-  >
-    <div>
-      <h1 class="text-4xl font-semibold">Coupon Details</h1>
-<!--      <p class="mt-4 text-lg flex items-center justify-center gap-2">-->
-<!--        <i class="fa-solid fa-house small"></i> Hem / categories-->
-<!--      </p>-->
+    <!-- Hero Section -->
+    <div class="bg-purple-100 min-h-[16rem] flex items-center justify-center text-center px-2">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-semibold">Browse</h1>
+        <p class="mt-3 sm:mt-4 text-base sm:text-lg flex items-center justify-center gap-2 text-gray-700">
+          <i class="fa-solid fa-house small"></i> Home / Coupon Details
+        </p>
+      </div>
     </div>
-  </div>
   <section class="my-12 px-4 sm:px-6 lg:px-8">
     <div
         class="relative max-w-2xl md:max-w-4xl lg:max-w-7xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200"

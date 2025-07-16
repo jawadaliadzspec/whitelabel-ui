@@ -3,9 +3,11 @@
     <nav class="max-w-7xl mx-auto flex items-center justify-between py-7 px-4 md:px-10">
       <!-- Logo -->
       <div class="flex items-center">
-        <span class="text-[#d63384] font-bold text-3xl" style="font-family: 'Pacifico', cursive;">
-          Veckans R
-        </span>
+        <NuxtLink
+            to="/"
+            class="hover:text-[#d63384] transition"
+            @click="closeMenu"
+        ><span class="text-[#d63384] font-bold text-2xl" style="font-family: 'Pacifico', cursive;">Veckans R</span></NuxtLink>
       </div>
       <!-- Desktop Nav Links -->
       <ul class="hidden md:flex gap-7 items-center font-medium text-lg">
@@ -16,20 +18,13 @@
               class="hover:text-[#d63384] transition"
           >Home</NuxtLink>
         </li>
-        <li>
-          <NuxtLink
-              to="/about"
-              exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"
-              class="hover:text-[#d63384] transition"
-          >About Us</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink
-              to="/browse"
-              exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"
-              class="hover:text-[#d63384] transition"
-          >Browse</NuxtLink>
-        </li>
+<!--        <li>-->
+<!--          <NuxtLink-->
+<!--              to="/about"-->
+<!--              exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"-->
+<!--              class="hover:text-[#d63384] transition"-->
+<!--          >About Us</NuxtLink>-->
+<!--        </li>-->
         <li>
           <NuxtLink
               to="/categories"
@@ -39,11 +34,18 @@
         </li>
         <li>
           <NuxtLink
-              to="/blog"
+              to="/browse"
               exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"
               class="hover:text-[#d63384] transition"
-          >Blog</NuxtLink>
+          >Browse</NuxtLink>
         </li>
+        <!--        <li>-->
+<!--          <NuxtLink-->
+<!--              to="/blog"-->
+<!--              exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"-->
+<!--              class="hover:text-[#d63384] transition"-->
+<!--          >Blog</NuxtLink>-->
+<!--        </li>-->
         <li>
           <NuxtLink
               to="/contact"
@@ -53,12 +55,12 @@
         </li>
       </ul>
       <!-- Login Button (Desktop only) -->
-      <NuxtLink
-          to="/login"
-          class="ml-4 border border-[#d63384] text-[#d63384] px-5 py-1.5 rounded-xl font-medium hover:bg-[#d63384] hover:text-white transition hidden md:inline-block"
-      >
-        Logga in
-      </NuxtLink>
+<!--      <NuxtLink-->
+<!--          to="/login"-->
+<!--          class="ml-4 border border-[#d63384] text-[#d63384] px-5 py-1.5 rounded-xl font-medium hover:bg-[#d63384] hover:text-white transition hidden md:inline-block"-->
+<!--      >-->
+<!--        Logga in-->
+<!--      </NuxtLink>-->
       <!-- Mobile Menu Button -->
       <button
           class="md:hidden flex items-center px-3 py-2 border rounded text-[#d63384] border-[#d63384] focus:outline-none"
@@ -85,7 +87,11 @@
           class="fixed top-0 left-0 right-0 bg-[#f5f3fc] z-50 p-6 shadow-lg md:hidden"
       >
         <div class="flex justify-between items-center mb-4">
-          <span class="text-[#d63384] font-bold text-2xl" style="font-family: 'Pacifico', cursive;">Veckans R</span>
+          <NuxtLink
+              to="/"
+              class="hover:text-[#d63384] transition"
+              @click="closeMenu"
+          ><span class="text-[#d63384] font-bold text-2xl" style="font-family: 'Pacifico', cursive;">Veckans R</span></NuxtLink>
           <button @click="toggleMenu" aria-label="Close main menu" class="text-[#d63384] text-3xl px-2 focus:outline-none">&times;</button>
         </div>
         <ul class="flex flex-col gap-4 text-lg font-medium">
@@ -97,22 +103,14 @@
                 @click="closeMenu"
             >Home</NuxtLink>
           </li>
-          <li>
-            <NuxtLink
-                to="/about"
-                exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"
-                class="hover:text-[#d63384] transition"
-                @click="closeMenu"
-            >About Us</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink
-                to="/browse"
-                exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"
-                class="hover:text-[#d63384] transition"
-                @click="closeMenu"
-            >Browse</NuxtLink>
-          </li>
+<!--          <li>-->
+<!--            <NuxtLink-->
+<!--                to="/about"-->
+<!--                exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"-->
+<!--                class="hover:text-[#d63384] transition"-->
+<!--                @click="closeMenu"-->
+<!--            >About Us</NuxtLink>-->
+<!--          </li>-->
           <li>
             <NuxtLink
                 to="/categories"
@@ -123,12 +121,20 @@
           </li>
           <li>
             <NuxtLink
-                to="/blog"
+                to="/browse"
                 exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"
                 class="hover:text-[#d63384] transition"
                 @click="closeMenu"
-            >Blog</NuxtLink>
+            >Browse</NuxtLink>
           </li>
+          <!--          <li>-->
+<!--            <NuxtLink-->
+<!--                to="/blog"-->
+<!--                exact-active-class="text-[#d63384] border-b-2 border-[#d63384] pb-1"-->
+<!--                class="hover:text-[#d63384] transition"-->
+<!--                @click="closeMenu"-->
+<!--            >Blog</NuxtLink>-->
+<!--          </li>-->
           <li>
             <NuxtLink
                 to="/contact"
@@ -137,13 +143,13 @@
                 @click="closeMenu"
             >Contact</NuxtLink>
           </li>
-          <li>
-            <NuxtLink
-                to="/login"
-                class="mt-2 border border-[#d63384] text-[#d63384] px-5 py-1.5 rounded-xl font-medium hover:bg-[#d63384] hover:text-white transition w-full block text-center"
-                @click="closeMenu"
-            >Logga in</NuxtLink>
-          </li>
+<!--          <li>-->
+<!--            <NuxtLink-->
+<!--                to="/login"-->
+<!--                class="mt-2 border border-[#d63384] text-[#d63384] px-5 py-1.5 rounded-xl font-medium hover:bg-[#d63384] hover:text-white transition w-full block text-center"-->
+<!--                @click="closeMenu"-->
+<!--            >Logga in</NuxtLink>-->
+<!--          </li>-->
         </ul>
       </div>
     </transition>
