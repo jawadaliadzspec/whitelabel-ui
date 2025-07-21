@@ -1,5 +1,5 @@
 <template>
-  <component v-if="selectedComponent" :is="selectedComponent" />
+  <component v-if="selectedComponent" :is="selectedComponent" :settings="homeSettings" />
 </template>
 
 <script setup>
@@ -15,10 +15,10 @@ const componentMap = {
 }
 
 const selectedComponent = shallowRef(null) // no component yet
-
+const homeSettings = ref({})
 onMounted(async () => {
   const settings = await $fetch('/api/settings')
-
+  homeSettings.value = settings
   const homepageKey = settings?.homePage ?? 'homeOne'
 
   if (componentMap[homepageKey]) {

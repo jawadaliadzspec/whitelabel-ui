@@ -7,7 +7,7 @@
             to="/"
             class="hover:text-[#d63384] transition"
             @click="closeMenu"
-        ><span class="text-[#d63384] font-bold text-2xl" style="font-family: 'Pacifico', cursive;">Veckans R</span></NuxtLink>
+        ><span class="text-[#d63384] font-bold text-2xl" style="font-family: 'Pacifico', cursive;"><img width="250px" :src="logo" :alt="appName"></span></NuxtLink>
       </div>
       <!-- Desktop Nav Links -->
       <ul class="hidden md:flex gap-7 items-center font-medium text-lg">
@@ -157,10 +157,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {onMounted, ref} from 'vue'
+import HomeOne from "~/components/homeOne/main.vue";
+import {useRuntimeConfig} from "#imports";
 const mobileMenuOpen = ref(false)
 const toggleMenu = () => (mobileMenuOpen.value = !mobileMenuOpen.value)
 const closeMenu = () => (mobileMenuOpen.value = false)
+const logo = ref('')
+const appName = ref('')
+onMounted(async () => {
+  const settings = await $fetch('/api/settings')
+
+ logo.value = settings?.logo
+  const config = useRuntimeConfig()
+  appName.value = config.public.appName
+
+})
 </script>
 
 <style scoped>

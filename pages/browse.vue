@@ -142,13 +142,13 @@ onMounted(async () => {
   await loadOffers()
 })
 
-const meta = ref({ page: 1, perPage: 9, total: 0, totalPages: 1 })
+const meta = ref({ page: 1, perPage: 21, total: 0, totalPages: 1 })
 const loading = ref(false)
 const selectedCategories = ref([])
 const selectedStores = ref([])
 // Set your default values here
 const page = ref(1)
-const perPage = ref(9)
+const perPage = ref(21)
 
 async function loadOffers() {
   loading.value = true
