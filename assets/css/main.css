@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-    --primary-color: #d63384;         /* fallback */
-    --primary-color-hover: #b01c63;   /* fallback for hover */
+    --primary-color: #d63384;
+    --primary-color-hover: #b01c63;
+    --secondary-color: #000000;
 }
 
 .bg-primary {

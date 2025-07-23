@@ -1,5 +1,5 @@
 <template>
-  <HeroSection :data="heroData"/>
+  <HeroSection :data="heroData" :colors="settings.colors"/>
   <ExclusiveSection/>
   <PopularSection/>
   <PopularCategories/>
