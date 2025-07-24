@@ -12,6 +12,7 @@ usePageMeta('Home', 'Contact With Us')
 const componentMap = {
   homeOne: HomeOne,
   homeTwo: HomeTwo,
+
 }
 
 const selectedComponent = shallowRef(null) // no component yet
