@@ -6,12 +6,14 @@
 import { shallowRef, onMounted } from 'vue'
 import HomeOne from '~/components/homeOne/main.vue'
 import HomeTwo from '~/components/homeTwo/main.vue'
+import HomeThree from '~/components/homeThree/main.vue'
 import { usePageMeta } from '~/composables/usePageMeta'
 
 usePageMeta('Home', 'Contact With Us')
 const componentMap = {
   homeOne: HomeOne,
   homeTwo: HomeTwo,
+  homeThree: HomeThree,
 
 }
 

@@ -1,79 +1,93 @@
 <template>
-  <div>
-    <!-- Hero Banner with Background Image + Overlay -->
-    <div class="faq-hero relative flex items-center justify-center h-52 sm:h-60 md:h-64 lg:h-72 xl:h-80 rounded-b-3xl shadow-md mb-10 mt-6 sm:mt-10">
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white z-10 text-center px-4">Frequently Asked Questions</h1>
-    </div>
+  <section
+      class="py-20 px-6 sm:px-12"
+      :style="{ backgroundColor: settings.faq_section_bg || '#ffffff' }"
+  >
+    <div class="max-w-5xl mx-auto">
+      <!-- Title -->
+      <h2
+          class="text-4xl font-bold mb-12 text-center"
+          :style="{ color: settings.faq_title_color || '#1f2937' }"
+      >
+        {{ settings.faq_title || 'Need Help? We’ve Got Answers' }}
+      </h2>
 
-    <!-- FAQ Section -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- FAQ Items -->
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">What is your return policy?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">We accept returns within 30 days. Items must be unused and in original packaging.</p>
-        </div>
-
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">How long does shipping take?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">Shipping usually takes 3–7 business days depending on your location.</p>
-        </div>
-
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">Do you ship internationally?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">Yes, we ship to most countries globally with applicable international rates.</p>
-        </div>
-
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">Can I track my order?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">Absolutely! We provide a tracking number once your order is dispatched.</p>
-        </div>
-
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">How do I contact support?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">Reach out through our contact form or email us at support@example.com.</p>
-        </div>
-
-
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">How do I contact support?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">Reach out through our contact form or email us at support@example.com.</p>
-        </div>
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">How do I contact support?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">Reach out through our contact form or email us at support@example.com.</p>
-        </div>
-
-
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg transition hover:shadow-xl">
-          <h3 class="text-lg sm:text-xl font-semibold text-purple-700 mb-2">Can I change my order?</h3>
-          <p class="text-gray-600 text-sm sm:text-base">Yes, contact us within 24 hours and we’ll do our best to help you modify it.</p>
+      <!-- FAQ Grid -->
+      <div v-if="faqs && faqs.length > 0" class="grid gap-6 sm:grid-cols-2">
+        <div
+            v-for="faq in faqs"
+            :key="faq.question"
+            class="rounded-3xl p-6 shadow-lg border border-gray-100 transition-all duration-300"
+            :style="{ backgroundColor: settings.faq_card_color || '#fef3c7' }"
+        >
+          <h3
+              class="font-semibold text-lg mb-2"
+              :style="{ color: settings.faq_text_color || '#92400e' }"
+          >
+            ❓ {{ faq.question }}
+          </h3>
+          <p class="text-sm leading-relaxed text-gray-600">
+            {{ faq.answer }}
+          </p>
         </div>
       </div>
-    </section>
-  </div>
+
+      <!-- No FAQs Message -->
+      <div v-else class="text-center text-gray-400 italic">
+        No FAQs available.
+      </div>
+    </div>
+  </section>
 </template>
 
-<style scoped>
-.faq-hero {
-  background-image: url('https://knowmax-ai-website.s3.amazonaws.com/wp-content/uploads/2024/06/08222118/FAQ-page-examples-1.webp');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  border-bottom-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
-
-.faq-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(139, 30, 175, 0.36); /* Purple overlay */
-  border-bottom-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-  z-index: 0;
-}
-</style>
-
 <script setup lang="ts">
+import { defineProps, withDefaults } from 'vue'
+
+withDefaults(
+    defineProps<{
+      faqs?: { question: string; answer: string }[]
+      settings?: {
+        faq_section_bg?: string
+        faq_card_color?: string
+        faq_text_color?: string
+        faq_title?: string
+        faq_title_color?: string
+      }
+    }>(),
+    {
+      faqs: () => [
+        {
+          question: 'What services do you offer?',
+          answer: 'We offer design, development, and marketing solutions customized to your business needs.'
+        },
+        {
+          question: 'How can I contact support?',
+          answer: 'You can reach us via live chat, email, or our contact form — 24/7 availability guaranteed.'
+        },
+        {
+          question: 'Is there a free trial available?',
+          answer: 'Yes! We offer a 14-day no-obligation trial. No credit card needed.'
+        },
+        {
+          question: 'Can I upgrade my plan later?',
+          answer: 'Absolutely. You can upgrade or downgrade anytime from your dashboard.'
+        },
+        {
+          question: 'Do you support international clients?',
+          answer: 'Yes, our services are available globally, and our team can work across time zones.'
+        },
+        {
+          question: 'Will my data remain secure?',
+          answer: 'We use industry-standard encryption and GDPR-compliant practices to keep your data safe.'
+        }
+      ],
+      settings: () => ({
+        faq_section_bg: '#ffffff',
+        faq_card_color: '#fef3c7',
+        faq_text_color: '#92400e',
+        faq_title: 'Need Help? We’ve Got Answers',
+        faq_title_color: '#1f2937'
+      })
+    }
+)
 </script>

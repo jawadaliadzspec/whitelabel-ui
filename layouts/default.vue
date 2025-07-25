@@ -16,15 +16,19 @@ import HeaderHomeOne from '~/components/homeOne/Header.vue'
 import HeaderHomeTwo from '~/components/homeOne/Header.vue'
 import FooterHomeOne from '~/components/homeOne/Footer.vue'
 import FooterHomeTwo from '~/components/homeOne/Footer.vue'
+import HeaderHomeThree from '~/components/homeOne/Header.vue'
+import FooterHomeThree from '~/components/homeOne/Footer.vue'
 
 type DynamicComponent = typeof HeaderHomeOne
 const navbarMap: Record<string, DynamicComponent> = {
   homeOne: HeaderHomeOne,
   homeTwo: HeaderHomeTwo,
+  homeThree: HeaderHomeThree,
 }
 const footerMap: Record<string, DynamicComponent> = {
   homeOne: FooterHomeOne,
   homeTwo: FooterHomeTwo,
+  homeThree: FooterHomeThree,
 }
 
 const selectedNavbar: ShallowRef<DynamicComponent | null> = shallowRef(null)

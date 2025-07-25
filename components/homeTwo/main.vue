@@ -2,8 +2,8 @@
   <HeroSection :data="heroData" :colors="settings.colors"/>
   <ExclusiveSection/>
   <PopularSection/>
-  <PopularCategories/>
   <BannerSection :data="bannerData"/>
+  <PopularCategories/>
 <faq :data="faqData"/>
 </template>
 <script setup lang="ts">
@@ -12,7 +12,6 @@ import ExclusiveSection from "~/components/homeTwo/ExclusiveSection.vue";
 import PopularSection from "~/components/homeTwo/PopularSection.vue";
 import PopularCategories from "~/components/homeTwo/PopularCategories.vue";
 import BannerSection from "~/components/homeTwo/BannerSection.vue";
-import FaqSection from "~/components/homeTwo/FaqSection.vue";
 import Faq from "~/components/homeTwo/faq.vue";
 
 
@@ -33,7 +32,7 @@ const bannerData = props.settings?.homeTwo?.bannerSection ?? {
   image: '',
 }
 
-const faqData = props.settings?.homeTwo?.faqSection ?? {
+const faqData = props.settings?.homeTwo?.faq ?? {
   title: 'FAQ',
   items: []
 }

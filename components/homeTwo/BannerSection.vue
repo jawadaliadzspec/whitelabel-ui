@@ -1,6 +1,6 @@
 <template>
   <div
-      class="relative w-full mx-auto rounded-xl overflow-hidden shadow-md md:p-8 sm:p-8"
+      class="relative w-full mx-auto rounded-xl overflow-hidden md:p-8 sm:p-8"
   >
     <!-- Background image - ensures it's always properly sized -->
     <img
