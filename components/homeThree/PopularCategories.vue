@@ -1,7 +1,7 @@
 <template>
   <section class="py-20 px-6 sm:px-10 lg:px-16 bg-gray-50">
     <h1 class="font-semibold text-4xl text-gray-700 text-center mb-16">
-      Exclusive Coupons
+      Popular Coupons
     </h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16 max-w-7xl mx-auto">
