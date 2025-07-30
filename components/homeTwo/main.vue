@@ -4,7 +4,7 @@
   <PopularSection/>
   <BannerSection :data="bannerData"/>
   <PopularCategories/>
-<faq :data="faqData"/>
+  <faq :data="faqData"/>
 </template>
 <script setup lang="ts">
 import HeroSection from "~/components/homeTwo/HeroSection.vue";
@@ -32,9 +32,10 @@ const bannerData = props.settings?.homeTwo?.bannerSection ?? {
   image: '',
 }
 
-const faqData = props.settings?.homeTwo?.faq ?? {
+const faqData = props.settings?.homeTwo?.faqSection ?? {
   title: 'FAQ',
   items: []
 }
+
 </script>
 

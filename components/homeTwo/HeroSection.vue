@@ -6,12 +6,12 @@
         class="relative bg-gradient-to-br from-purple-700 to-blue-900 text-white pt-12 md:pt-16 pb-32 md:pb-48 lg:pb-2 h-auto md:h-[32rem] text-center px-4"
     >
       <div  class="max-w-6xl mx-auto">
-        <h1 :style="{ color: secondaryColor }" class="text-3xl md:text-4xl lg:text-5xl text-yellow-400 font-extrabold leading-tight mb-4"
-        > {{ data.secondHeading || ' Your new favorite website for student discounts with deals you wont find anywhere else' }}
+        <h1 :style="{ color: primaryColor }" class="text-3xl md:text-4xl lg:text-5xl text-yellow-400 font-extrabold leading-tight mb-4"
+        > {{ data.mainHeading || 'Save money' }}
 
         </h1>
-        <p :style="{ color: primaryColor }" class="text-base md:text-lg text-purple-200 px-2 md:px-4">
-          {{ data.mainHeading || 'Your new favorite student discount site with deals you wont find anywhere else' }}
+        <p :style="{ color: secondaryColor }" class="text-base md:text-lg text-purple-200 px-2 md:px-4">
+          {{ data.secondHeading || 'Over 3000 discounts available now!' }}
           .
         </p>
         <br class="hidden md:block" />

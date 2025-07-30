@@ -1,9 +1,9 @@
 <template>
-  <hero-section/>
+  <hero-section :data="heroData" :colors="settings.colors"/>
   <exclusive-section/>
   <PopularCategories/>
-  <banner-section/>
-  <Faq/>
+  <banner-section :data="bannerData"/>
+  <Faq :data="faqData"/>
 
 </template>
 <script setup lang="ts">
@@ -12,4 +12,27 @@ import ExclusiveSection from "~/components/homeThree/ExclusiveSection.vue";
 import BannerSection from "~/components/homeThree/BannerSection.vue";
 import PopularCategories from "~/components/homeThree/PopularCategories.vue";
 import Faq from "~/components/homeThree/Faq.vue";
+const props = defineProps<{
+  settings: Record<string, any>
+}>()
+
+const heroData = props.settings?.homeOne?.heroSection ?? {
+  mainHeading: '',
+  secondHeading: '',
+  buttonText: '',
+  image: '',
+};
+
+const bannerData = props.settings?.homeOne?.bannerSection ?? {
+  mainHeading: '',
+  secondHeading: '',
+  buttonText: '',
+  image: '',
+};
+
+
+const faqData = props.settings?.homeOne?.faqSection ?? {
+  title: 'FAQ',
+  items: []
+}
 </script>

@@ -10,8 +10,8 @@
           :key="offer.id"
           class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-300"
       >
-        <!-- Image -->
-        <div class="w-full md:w-1/2">
+        <!-- Image Section with right border -->
+        <div class="w-full md:w-1/2 md:border-r md:border-gray-300">
           <div class="aspect-[4/3] md:aspect-auto h-full">
             <img
                 :src="offer.thumbnail || 'https://via.placeholder.com/300x200'"
@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <!-- Content -->
+        <!-- Content Section -->
         <div
             class="w-full md:w-1/2 px-4 py-6 sm:px-6 md:px-6 lg:px-8 flex flex-col justify-center space-y-4 md:space-y-6"
         >
@@ -41,12 +41,10 @@
             {{ offer.title }}
           </div>
 
-
           <!-- CTA Button -->
           <NuxtLink
               :to="`/offers/${offer.path}`"
-              class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition text-center
-         w-full sm:w-auto md:w-auto mx-auto md:mx-0"
+              class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition text-center w-full sm:w-auto md:w-auto mx-auto md:mx-0"
           >
             Discover More
           </NuxtLink>
