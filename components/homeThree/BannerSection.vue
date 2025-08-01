@@ -1,9 +1,10 @@
 <template>
-  <section class="relative">
-    <!-- Container with side padding -->
-    <div class="mx-auto max-w-[2000px] mt-10">
-      <!-- Image Container with proper aspect ratio -->
-      <div class="w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden">
+  <section class="relative py-6 sm:py-8">
+    <!-- Outer container with padding and rounded corners -->
+    <div class="mx-auto max-w-[2000px] px-4 sm:px-6 md:px-8 rounded-2xl overflow-hidden relative">
+
+      <!-- Background Image with slightly reduced height -->
+      <div class="w-full aspect-[4/3] md:aspect-[5/2] overflow-hidden rounded-2xl">
         <img
             src="https://img.meccdn.com/media/991ce6c1-336e-42d9-b486-dc27a7675675.jpg?h=500"
             class="w-full h-full object-cover"
@@ -11,14 +12,12 @@
         />
       </div>
 
-      <!-- Content Overlay with responsive side spacing -->
-      <div class="absolute inset-0 flex flex-col justify-center items-center">
-        <div
-            class="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 max-w-6xl mx-auto text-center"
-        >
+      <!-- Content Overlay -->
+      <div class="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-8 md:px-12">
+        <div class="max-w-6xl mx-auto text-center">
           <div class="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
             <h1
-                class="text-white font-bold text-2xl xs:text-3xl sm:text-4xl md:text-[2.7rem] lg:text-5xl drop-shadow-lg"
+                class="text-white font-bold text-2xl xs:text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl drop-shadow-lg"
             >
               {{ data.mainHeading || 'Discounts, discounts, discounts, here you will find them.' }}
             </h1>

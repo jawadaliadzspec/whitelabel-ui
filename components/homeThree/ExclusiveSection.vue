@@ -10,8 +10,8 @@
           :key="offer.id"
           class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-300"
       >
-        <!-- Image Section with right border -->
-        <div class="w-full md:w-1/2 md:border-r md:border-gray-300">
+        <!-- Image Section -->
+        <div class="w-full md:w-1/2">
           <div class="aspect-[4/3] md:aspect-auto h-full">
             <img
                 :src="offer.thumbnail || 'https://via.placeholder.com/300x200'"
@@ -21,9 +21,9 @@
           </div>
         </div>
 
-        <!-- Content Section -->
+        <!-- Content Section with darker background -->
         <div
-            class="w-full md:w-1/2 px-4 py-6 sm:px-6 md:px-6 lg:px-8 flex flex-col justify-center space-y-4 md:space-y-6"
+            class="w-full md:w-1/2 bg-gray-200 px-4 py-6 sm:px-6 md:px-6 lg:px-8 flex flex-col justify-center space-y-4 md:space-y-6"
         >
           <!-- Store Badge -->
           <div

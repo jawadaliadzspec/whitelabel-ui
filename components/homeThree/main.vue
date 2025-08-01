@@ -16,14 +16,14 @@ const props = defineProps<{
   settings: Record<string, any>
 }>()
 
-const heroData = props.settings?.homeOne?.heroSection ?? {
+const heroData = props.settings?.homeThree?.heroSection ?? {
   mainHeading: '',
   secondHeading: '',
   buttonText: '',
   image: '',
 };
 
-const bannerData = props.settings?.homeOne?.bannerSection ?? {
+const bannerData = props.settings?.homeThree?.bannerSection ?? {
   mainHeading: '',
   secondHeading: '',
   buttonText: '',
@@ -31,7 +31,7 @@ const bannerData = props.settings?.homeOne?.bannerSection ?? {
 };
 
 
-const faqData = props.settings?.homeOne?.faqSection ?? {
+const faqData = props.settings?.homeThree?.faqSection ?? {
   title: 'FAQ',
   items: []
 }
