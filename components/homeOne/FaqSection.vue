@@ -4,9 +4,9 @@
   >
     <!-- FAQ Section -->
     <div class="w-full max-w-2xl bg-white p-6 space-y-4">
-      <h2 class="font-bold text-3xl p-2">{{ data.title }}</h2>
+      <h2 class="font-bold text-3xl p-2">{{ data.title ?? 'Frequently Asked Questions' }}</h2>
 
-      <div v-if="data.items.length > 0">
+      <div v-if="data.items?.length || 0 > 0">
         <div v-for="(faq, idx) in data.items" :key="faq.question">
           <button
               @click="toggleFAQ(idx)"

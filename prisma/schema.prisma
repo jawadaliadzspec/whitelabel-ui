@@ -173,7 +173,7 @@ model companies {
   vat                           String?                         @db.VarChar(255)
   name                          String                          @db.VarChar(255)
   email                         String                          @unique(map: "companies_email_unique") @db.VarChar(255)
-  domain                        String                          @unique(map: "companies_domain_unique") @db.VarChar(255)
+  domain                        String?                         @unique(map: "companies_domain_unique") @db.VarChar(255)
   status                        Boolean                         @default(true)
   created_at                    DateTime?                       @db.Timestamp(0)
   updated_at                    DateTime?                       @db.Timestamp(0)
@@ -229,17 +229,18 @@ model company_profiles {
 }
 
 model company_subscriptions {
-  id              BigInt        @id @default(autoincrement()) @db.UnsignedBigInt
-  company_id      BigInt        @db.UnsignedBigInt
-  subscription_id BigInt        @db.UnsignedBigInt
-  start_date      DateTime      @db.Date
-  end_date        DateTime      @db.Date
-  status          String        @db.VarChar(255)
-  created_at      DateTime?     @db.Timestamp(0)
-  updated_at      DateTime?     @db.Timestamp(0)
-  companies       companies     @relation(fields: [company_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "company_subscriptions_company_id_foreign")
-  subscriptions   subscriptions @relation(fields: [subscription_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "company_subscriptions_subscription_id_foreign")
-  payments        payments[]
+  id                     BigInt        @id @default(autoincrement()) @db.UnsignedBigInt
+  company_id             BigInt        @db.UnsignedBigInt
+  subscription_id        BigInt        @db.UnsignedBigInt
+  stripe_subscription_id String?       @db.VarChar(255)
+  start_date             DateTime      @db.Date
+  end_date               DateTime?     @db.Date
+  status                 String        @db.VarChar(255)
+  created_at             DateTime?     @db.Timestamp(0)
+  updated_at             DateTime?     @db.Timestamp(0)
+  companies              companies     @relation(fields: [company_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "company_subscriptions_company_id_foreign")
+  subscriptions          subscriptions @relation(fields: [subscription_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "company_subscriptions_subscription_id_foreign")
+  payments               payments[]
 
   @@index([company_id], map: "company_subscriptions_company_id_foreign")
   @@index([subscription_id], map: "company_subscriptions_subscription_id_foreign")
@@ -375,15 +376,55 @@ model stores {
 }
 
 model subscriptions {
-  id                    BigInt                  @id @default(autoincrement()) @db.UnsignedBigInt
-  name                  String                  @db.VarChar(255)
-  price                 Decimal                 @db.Decimal(10, 2)
-  duration              Int
-  features              Json?
-  status                Boolean                 @default(true)
-  created_at            DateTime?               @db.Timestamp(0)
-  updated_at            DateTime?               @db.Timestamp(0)
-  company_subscriptions company_subscriptions[]
+  id                          BigInt                        @id @default(autoincrement()) @db.UnsignedBigInt
+  name                        String                        @db.VarChar(255)
+  price_id                    String                        @db.VarChar(255)
+  price                       Decimal                       @db.Decimal(10, 2)
+  duration                    Int
+  status                      Boolean                       @default(true)
+  created_at                  DateTime?                     @db.Timestamp(0)
+  updated_at                  DateTime?                     @db.Timestamp(0)
+  company_subscriptions       company_subscriptions[]
+  subscription_feature_values subscription_feature_values[]
+  subscription_plan_feature   subscription_plan_feature[]
+}
+
+model features {
+  id                          BigInt                        @id @default(autoincrement()) @db.UnsignedBigInt
+  name                        String                        @db.VarChar(255)
+  key                         String                        @unique(map: "features_key_unique") @db.VarChar(255)
+  is_value_based              Boolean                       @default(false)
+  created_at                  DateTime?                     @db.Timestamp(0)
+  updated_at                  DateTime?                     @db.Timestamp(0)
+  subscription_feature_values subscription_feature_values[]
+  subscription_plan_feature   subscription_plan_feature[]
+}
+
+model subscription_feature_values {
+  id              BigInt        @id @default(autoincrement()) @db.UnsignedBigInt
+  subscription_id BigInt        @db.UnsignedBigInt
+  feature_id      BigInt        @db.UnsignedBigInt
+  value           String?       @db.VarChar(255)
+  created_at      DateTime?     @db.Timestamp(0)
+  updated_at      DateTime?     @db.Timestamp(0)
+  features        features      @relation(fields: [feature_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "subscription_feature_values_feature_id_foreign")
+  subscriptions   subscriptions @relation(fields: [subscription_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "subscription_feature_values_subscription_id_foreign")
+
+  @@index([feature_id], map: "subscription_feature_values_feature_id_foreign")
+  @@index([subscription_id], map: "subscription_feature_values_subscription_id_foreign")
+}
+
+model subscription_plan_feature {
+  id              BigInt        @id @default(autoincrement()) @db.UnsignedBigInt
+  subscription_id BigInt        @db.UnsignedBigInt
+  feature_id      BigInt        @db.UnsignedBigInt
+  created_at      DateTime?     @db.Timestamp(0)
+  updated_at      DateTime?     @db.Timestamp(0)
+  features        features      @relation(fields: [feature_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "subscription_plan_feature_feature_id_foreign")
+  subscriptions   subscriptions @relation(fields: [subscription_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "subscription_plan_feature_subscription_id_foreign")
+
+  @@index([feature_id], map: "subscription_plan_feature_feature_id_foreign")
+  @@index([subscription_id], map: "subscription_plan_feature_subscription_id_foreign")
 }
 
 enum offers_type {
