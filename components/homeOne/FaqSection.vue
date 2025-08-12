@@ -10,7 +10,7 @@
         <div v-for="(faq, idx) in data.items" :key="faq.question">
           <button
               @click="toggleFAQ(idx)"
-              class="w-full border-transparent pl-3 border bg-pink-50 rounded-t-md flex justify-between items-center py-2 text-left text-lg font-medium text-gray-600 focus:outline-none"
+              class="w-full border-transparent pl-3 mt-4 border bg-pink-100 rounded-t-md flex justify-between items-center py-2 text-left text-lg font-medium text-gray-600 focus:outline-none"
           >
             {{ faq.question }}
             <span
