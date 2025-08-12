@@ -1,5 +1,5 @@
 <template>
-  <hero-section :data="heroData" :colors="settings.colors"/>
+  <hero-section :data="heroData" :colors="settings.colors" :slider="slider"/>
   <exclusive-section/>
   <PopularCategories/>
   <banner-section :data="bannerData"/>
@@ -22,7 +22,11 @@ const heroData = props.settings?.homeThree?.heroSection ?? {
   buttonText: '',
   image: '',
 };
-
+const slider = props.settings?.homeThree?.sliderImages ?? [
+  {url:'https://demos.wicombit.com/couponza/images/slider_1635351790.jpg'},
+  {url:'https://demos.wicombit.com/couponza/images/slider_1635353238.jpg'},
+  {url:'https://demos.wicombit.com/couponza/images/slider_1635352051.jpg'}
+]
 const bannerData = props.settings?.homeThree?.bannerSection ?? {
   mainHeading: '',
   secondHeading: '',
