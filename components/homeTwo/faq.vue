@@ -5,7 +5,7 @@
         {{ data.title }}
       </h2>
 
-      <div v-if="data.items.length > 0" class="grid gap-6 sm:grid-cols-2">
+      <div v-if="(data.items?.length || 0) > 0" class="grid gap-6 sm:grid-cols-2">
         <div
             v-for="(faq, idx) in data.items"
             :key="faq.question"
