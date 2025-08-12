@@ -4,13 +4,22 @@
       Popular Coupons
     </h1>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16 max-w-7xl mx-auto">
+    <!-- Show message if no offers -->
+    <div v-if="offers.length === 0" class="text-center text-gray-500 text-lg italic">
+      No offers available at the moment.
+    </div>
+
+    <!-- Show grid if offers exist -->
+    <div
+        v-else
+        class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16 max-w-7xl mx-auto"
+    >
       <div
           v-for="(offer, idx) in offers"
           :key="offer.id"
           class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-300"
       >
-        <!-- Image Section (no right border) -->
+        <!-- Image Section -->
         <div class="w-full md:w-1/2">
           <div class="aspect-[4/3] md:aspect-auto h-full">
             <img
@@ -21,7 +30,7 @@
           </div>
         </div>
 
-        <!-- Content Section with background -->
+        <!-- Content Section -->
         <div
             class="w-full md:w-1/2 bg-gray-200 px-4 py-6 sm:px-6 md:px-6 lg:px-8 flex flex-col justify-center space-y-4 md:space-y-6"
         >

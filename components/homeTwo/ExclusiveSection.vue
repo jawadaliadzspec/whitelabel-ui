@@ -4,7 +4,9 @@
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-6">
         Exclusive offers 🔥
       </h2>
-
+      <div v-if="offers.length === 0" class="text-center text-gray-500 text-lg italic">
+        No offers available at the moment.
+      </div>
       <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
       >

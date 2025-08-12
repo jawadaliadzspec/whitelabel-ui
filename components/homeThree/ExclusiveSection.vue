@@ -3,6 +3,9 @@
     <h1 class="font-semibold text-5xl text-gray-800 text-center mb-16">
       Exclusive Coupons
     </h1>
+    <div v-if="offers.length === 0" class="text-center text-gray-500 text-lg italic">
+      No offers available at the moment.
+    </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16 max-w-7xl mx-auto">
       <div

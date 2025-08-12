@@ -4,7 +4,7 @@
       Popular Categories
     </h1>
 
-    <div class="flex flex-wrap justify-center gap-6 px-2 sm:px-6">
+    <div v-if="categories.length" class="flex flex-wrap justify-center gap-6 px-2 sm:px-6">
       <div
           v-for="cat in categories"
           :key="cat.id"
@@ -12,9 +12,9 @@
       >
         <NuxtLink
             :to="{
-      path: '/browse',
-      query: { categories: cat.id }
-    }"
+            path: '/browse',
+            query: { categories: cat.id }
+          }"
             class="w-full text-center block"
         >
           <p class="text-xl font-bold text-gray-900 hover:text-[#d63384]">
@@ -25,6 +25,10 @@
           </p>
         </NuxtLink>
       </div>
+    </div>
+
+    <div v-else class="text-center py-10 text-gray-700 font-lg italic">
+      No categories available
     </div>
   </section>
 </template>
